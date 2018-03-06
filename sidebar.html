@@ -1,0 +1,205 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Sidebar</title>
+<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+<style type="text/css">
+
+body {
+	background: #333;
+	font-family: "Comic Sans MS", cursive;
+}
+.OpenMenu {
+	-webkit-transition: color 2s ease-out;
+	-moz-transition: color 2s ease-out;
+	-o-transition: color 2s ease-out;
+	transition: color 2s ease-out;
+	background-color:#333;
+	color: #F00;
+	border: none;
+	position: absolute;
+  	clip: rect(0, 0, 0, 0);
+	transition: all 0.5s;
+}
+
+
+label[for="OpenMenu"]:hover {
+	color:#0CF;
+	background: none;
+	transition: color 0.3s;
+}
+
+.navigation {
+    list-style: none;
+    background: #333;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: -35px;
+    z-index: 0;
+}
+.item {
+  width: 200px;
+}
+
+.item a {
+  display: block;
+  padding: 1em;
+  background: #444;
+  color: white;
+  font-size: 1.2em;
+  font-family: Lato, Pacifico;
+  letter-spacing: 3px;
+  text-decoration: none;
+  transition: color 0.2s, background 0.5s;
+}
+
+
+.item a:hover {
+  color: #c74438;
+  background: linear-gradient(135deg, rgba(0,0,0,0) 0%,rgba(75,20,20,0.65) 100%);
+}
+
+
+label[for="OpenMenu"] {
+  position: fixed;
+  left: 15px; top: 15px;
+  z-index: 2;
+  height: 30px;
+  width: 30px;
+  cursor: pointer;
+  background-size: contain;
+  transition: color: 0.2s, background 0.5s;
+  color:#EEE;
+}
+
+
+.OpenMenu + label, .site {
+  transition: left 0.2s;
+}
+.site {
+  min-height: 100%;
+  min-width: 100%;
+  background-color: #333; 
+  position: relative;
+  top: 0;
+  bottom: 100%;
+  left: -100px;
+  z-index: 0;
+  padding: 5em;
+  background-size: 2000%;
+}
+
+
+.OpenMenu:checked + label {
+  left: 215px;
+  color: #0CF;
+	-webkit-transform: rotate(-90deg);
+	-moz-transform: rotate(-90deg);
+	-ms-transform: rotate(-90deg);
+	-o-transform: rotate(-90deg);
+	-webkit-transition-duration: 3s;
+	-moz-transition-duration: 3s;
+	-o-transition-duration: 3s;
+	transition-duration: 3s;
+	filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+	transition: all 0.5s;
+}
+.OpenMenu:not(:checked) + label {
+	tansition: all 0.5s;
+}
+.OpenMenu:checked ~ .site {
+  left: 200px;
+  box-shadow: 0 0 5px 5px rgba(0,0,0,0.5);
+  transition: all 0.3s;
+}
+.OpenMenu:not(:checked) ~ .site {
+transition: all 0.5s;	
+}
+
+body {
+    background-color:#333;
+  overflow-x: hidden;
+}
+
+.designed {
+color: #999
+font-family: Arial, Times New Roman;
+position:absolute;
+bottom:0;
+left:0;
+padding: 1rem;
+}
+
+</style>
+<link href="https://fonts.googleapis.com/css?family=Hind" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
+<script type="text/javascript">
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+</script>
+</head>
+
+<body onload="MM_preloadImages('https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/HTML5_logo_and_wordmark.svg/512px-HTML5_logo_and_wordmark.svg.png')">
+
+<ul class="navigation" id="navigation">
+    <li class="item"><a href="main.html" target="mainFrame">Home</a></li>
+    <li class="item"><a href="careers.html" target="mainFrame">Careers</a></li>
+  <li class="item"><a href="security.html" target="mainFrame">Computer Security</a></li>
+    <li class="item"><a href="procon.html" target="mainFrame">Pros &amp; Cons</a></li>
+    <li class="item"><a href="form.html" target="mainFrame">Survey</a></li>
+</ul>
+<div class="designed">
+ <a href="#" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image5','','https://s-media-cache-ak0.pinimg.com/originals/30/34/09/303409b0f2b6f054e4df5810887834d0.png',1)"><img src="https://www.javacodegeeks.com/wp-content/uploads/2016/01/javascript-shield.png" alt="Javascript and Java" width="140" height="125" id="Image5" /></a>
+ <p></p>
+  <a href="#" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image4','','https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/HTML5_logo_and_wordmark.svg/512px-HTML5_logo_and_wordmark.svg.png',1)"><img src="http://divinitycomputing.com/wp-content/uploads/2015/12/css.png" alt="HTML and CSS" width="140" height="125" id="Image4" /></a>
+  <p><div style="font-family:Hind, Arial;">Designed by </div><div style="font-family: Pacifico, Arial;">Spencer Graham </div></p>
+  <p> <a href="https://www.hwdsb.on.ca" target="_blank" style="font-family:Hind, Arial; color:#06F; text-decoration:none;">HWDSB </a></p>
+</div>
+
+<input type="checkbox" class="OpenMenu" id="OpenMenu"/>
+<label for="OpenMenu">&#9776;</label>
+<div class="site">
+  <p>&nbsp;</p>
+  <p>&nbsp;</p>
+  <p>&nbsp;</p>
+  <p>&nbsp;</p>
+  <p>&nbsp;</p>
+  <p>&nbsp;</p>
+  <p>&nbsp;</p>
+  <p>&nbsp;</p>
+  <p>&nbsp;</p>
+  <p>&nbsp;</p>
+  <p>&nbsp;</p>
+  <p>&nbsp;</p>
+  <p>&nbsp;</p>
+  <p>&nbsp;</p>
+  <p>&nbsp;</p>
+  <p>&nbsp;</p>
+  <p>&nbsp;</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,576 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="https://fonts.googleapis.com/css?family=Poiret+One" rel="stylesheet">
+<title>Computer Security</title>
+<style type="text/css">
+<!--
+h1 {
+font-family: 'Poiret One', Arial;	
+text-align: center;
+}
+body {
+	background-color: #333;
+	color: #FFF;
+}
+-->
+html, .flex {
+  height: 100%;
+  
+}
+	a {
+		text-decoration: none;
+		color: #999;
+	}
+
+
+.flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.5s;
+}
+
+.box {
+  width: 200px;
+  height: 200px;
+  border-radius: 10px;
+  box-shadow: 0 2px 30px rgba(black, .2);
+  background: lighten(#f0f4c3, 10%);
+  position: absolute;
+  overflow: hidden;
+  transform: translate3d(0, 0, 0);
+  top: 30%;
+  display: inline-block;
+  transition: all 0.5s;
+}
+
+.wave {
+  opacity: .1;
+  position: absolute;
+  top: -40%;
+  left: 50%;
+  background: #0af;
+  width: 500px;
+  height: 500px;
+  margin-left: -250px;
+  margin-top: -250px;
+  transform-origin: 50% 48%;
+  border-radius: 38%;
+  animation: drift 3000ms infinite linear;
+}
+
+.wave.-three {
+  animation: drift 5000ms infinite linear;
+}
+    
+
+.wave.-two {
+  animation: drift 7000ms infinite linear;
+  opacity: .2;
+  background: yellow;
+}
+
+
+.box:after {
+  content: '';
+  display: block;
+  left: 0;
+  top: 50%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, rgba(#e8a, 1), rgba(#def, 0) 80%, rgba(white, .5));
+  z-index: 11;
+  transform: translate3d(0, 0, 0);
+  transition: all 0.5s;
+}
+
+.title {
+  position: absolute;
+  left: 0;
+  top: -40%;
+  width: 100%;
+  z-index: 1;
+  line-height: 300px;
+  text-align: center;
+  transform: translate3d(0, 0, 0);
+  color: white;
+  text-transform: uppercase;
+  font-family: 'Playfair Display', serif;
+  letter-spacing: .4em;
+  font-size: 14px;
+  text-shadow: 0 1px 0 rgba(black, .1);
+  text-indent: .3em;
+}
+@keyframes drift {
+  from { transform: rotate(0deg); }
+  from { transform: rotate(360deg); }
+  from { transition: all 0.5s; }
+}
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    width: 40%; /* Full width */
+    height: 40%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.8); /* Black w/ opacity */
+	border-radius: 20px;
+	transition: all 0.5s;
+	animation: in 0.5s ease both;
+}
+
+/* Modal Content */
+.modal-content {
+    margin: auto;
+    padding: 2px;
+    width: 80%;
+	transition: all 0.5s;
+    top: 0;
+    }
+
+/* The Close Button */
+.close {
+    color: #0CF;
+    float: right;
+	left: 0;
+	bottom: 60%;
+    font-size: 28px;
+    font-weight: bold;
+	transition: all 0.5s;
+	position: relative;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+footer {
+position: absolute;
+right: 0;
+bottom: 0;
+left: 0;
+padding: 1rem;
+text-align: center;
+text-decoration: none;
+color: #333;
+}
+</style>
+
+
+</head>
+
+<body>
+     <script defer>
+         window.onload = function() {
+             
+             //MISC SECTION
+             var modal = document.getElementsByClassName("modal");
+             //END MISC
+             
+//MODALS ONLY
+var ilmod = document.getElementById('ilmod');
+var klmod = document.getElementById('klmod');
+var phmod = document.getElementById('phmod');
+var cjmod = document.getElementById('cjmod');
+var ddmod = document.getElementById('ddmod');
+var idmod = document.getElementById('idmod');
+var spmod = document.getElementById('spmod');
+var bdmod = document.getElementById('bdmod');
+var spfmod = document.getElementById('spfmod');
+var hwmod = document.getElementById('hwmod');
+                //END CLOSE BUTTONS
+             
+//OPEN BUTTONS ONLY
+var ilbut = document.getElementById('ilb');
+var klbut = document.getElementById('klb');
+var phbut = document.getElementById('phb');
+var cjbut = document.getElementById('cjb');
+var ddbut = document.getElementById('ddb');
+var idbut = document.getElementById('idb');
+var spbut = document.getElementById('spb');
+var bdbut = document.getElementById('bdb');
+var spfbut = document.getElementById('spfb');
+var hwbut = document.getElementById('hwb');
+             //END OPEN BUTTONS
+             
+             
+//CLOSE BUTTONS ONLY
+var ilclose = document.getElementById('ilclose');
+var klclose = document.getElementById('klclose');
+var phclose = document.getElementById('phclose');
+var cjclose = document.getElementById('cjclose');
+var ddclose = document.getElementById('ddclose');
+var idclose = document.getElementById('idclose');
+var spclose = document.getElementById('spclose');
+var bdclose = document.getElementById('bdclose');
+var spfclose = document.getElementById('spfclose');
+var hwclose = document.getElementById('hwclose');
+             //END CLOSE BUTTONS
+             
+//REST OF THE CODE && A LOT OF IT
+             
+/* 
+
+
+_______________________________________________________________________________________
+_______________________________________________________________________________________
+
+
+*/
+             
+//Functions a plenty! Might as well handle CSS position here too...
+
+             //Starting in original order. All open buttons followed by close buttons
+             
+ilbut.onclick = function() {
+   ilmod.style.display = "block";
+    ilmod.style.left = "0%";
+}
+
+klbut.onclick = function() {
+   klmod.style.display = "block";
+    klmod.style.left = "40%";
+}
+
+phbut.onclick = function() {
+   phmod.style.display = "block";
+   phmod.style.left = "20%";
+}
+
+cjbut.onclick = function() {
+   cjmod.style.display = "block";
+    cjmod.style.left = "50%";
+    cjmod.style.top = "40%";
+}
+
+ddbut.onclick = function() {
+   ddmod.style.display = "block";
+    ddmod.style.left = "20%";
+    ddmod.style.top = "40%";
+}
+
+idbut.onclick = function() {
+   idmod.style.display = "block"; 
+    idmod.style.left = "50%";
+}
+
+spbut.onclick = function() {
+   spmod.style.display = "block"; 
+    spmod.style.left = "50%";
+}
+
+bdbut.onclick = function() {
+   bdmod.style.display = "block"; 
+    bdmod.style.left = "0%";
+    bdmod.style.top = "40%";
+}
+
+spfbut.onclick = function() {
+   spfmod.style.display = "block"; 
+    spfmod.style.left = "40%";
+    spfmod.style.top = "40%";
+}
+
+hwbut.onclick = function() {
+   hwmod.style.display = "block"; 
+    hwmod.style.left = "50%";
+    hwmod.style.top = "40%";
+}
+
+
+ //Handle the close
+
+ilclose.onclick = function() {
+   ilmod.style.display = "none";
+}
+
+klclose.onclick = function() {
+   klmod.style.display = "none";
+}
+
+phclose.onclick = function() {
+   phmod.style.display = "none";
+}
+
+cjclose.onclick = function() {
+   cjmod.style.display = "none";
+}
+
+ddclose.onclick = function() {
+   ddmod.style.display = "none";
+}
+
+idclose.onclick = function() {
+   idmod.style.display = "none"; 
+}
+
+spclose.onclick = function() {
+   spmod.style.display = "none"; 
+}
+
+bdclose.onclick = function() {
+   bdmod.style.display = "none"; 
+}
+
+spfclose.onclick = function() {
+   spfmod.style.display = "none"; 
+}
+
+hwclose.onclick = function() {
+   hwmod.style.display = "none"; 
+}
+
+//Now that that's over, generally do stuff below
+             
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+        }
+    }
+
+//Clickjack.me
+
+function openURL() {
+	var win = window.open("clickjacked.html", '_blank');
+	win.focus();
+}
+};
+
+</script>
+<embed src="style/flash/compusec.swf" width="740" height="110"  style="position:absolute; left: 17.5%;"/>
+<div class="flex" style="display:inline-block; position:inherit;">
+<div class="box" style="left=0%;">
+  <div class="wave -one" style="background:#06F;"></div>
+  <div class="wave -two" style="background:#03F;"></div>
+  <div class="wave -three" style="background:#0FF;"></div>
+  <div class="title">
+    <a href="#" id="ilb" style="text-decoration:none; color:#FFF; letter-spacing: 1px;">Illegal Downloading</a>
+  </div>
+ </div>
+ </div>
+<div id="ilmod" class="modal" >
+  <div class="modal-content">
+    <span class="close" id="ilclose">&times;</span>
+    <h1 align="center">Illegal Downloading</h1>
+    <p>Illegal downloading is the act of downloading content that you would typically have to pay for. For example: If a song was for sale in Canada, and you could easily buy it either digitally or physically, then it is illegal to download the song for free via music pirating sites. There are some exceptions to this law, however. If a product is not availible in Canada, but is for sale in other countries, it is not a crime to download it for free in Canada, because it wasn't for sale in the first place here. In Canada, there is sparse legislation in this area, compared to the United States. In the U.S, it is a punishable offense to download files illegally, and there have been multiple cases in which people were fined large sums of money (over $250 000) for downloading files illegally. The artists and content producers who spend a lot of time and money creating their intellectual property are not getting the money they have the right to, because people upload the intellectual property onto pirating sites and offer them for free there.</p>
+    <img src="https://www.esoftload.info/wp-content/uploads/2013/03/illegal-downloads.jpg" style="z-index: -1; width: 100%; height: 100%; opacity: 0.5; top: 50%; left: 50%;"/>
+  </div>
+</div>
+ <div class="flex" style="display:inline-block; position:inherit;">
+   <div class="box" style="left: 20%;">
+  <div class="wave -one" style="background:#F00;"></div>
+  <div class="wave -two" style="background:#00F;"></div>
+  <div class="wave -three" style="background:#999;"></div>
+  <div class="title">
+    <a href="#" id="phb" style="text-decoration: none; color: #FFF;">Phishing</a>
+ </div>
+     </div>
+    </div>
+<div id="phmod" class="modal">
+    
+  <div class="modal-content">
+     
+    <span class="close" id="phclose">&times;</span>
+    <h1 align="center">Phishing</h1>
+      <p>Usually in the form of E-Mails or Websites, the malicious E-Mail or Website will disguise itself as a reputable company, such as a bank or government. E-Mails will usually tell you to click a link, in order to “prevent further action” or “re-enable your account”. When you click this link, one of two things can happen: if you have recently been on the real website and didn’t clear your cache, the malicious site can access the code that is used to log you in and log in to the real site with it. This is very easy to prevent, usually you just have to clear your website data and history, and sign into the real website again. Another possibility is that the website the malicious link leads you to will be a replica of the reputable website. The goal here is for the victim to enter their username and password, which will not be sent to the real site, but will rather be used by the attacker to gain access to important information.
+</p>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/PhishingTrustedBank.png/300px-PhishingTrustedBank.png" style="z-index: -1; width: 100%; height: 100%; opacity: 0.5; top: 50%; left: 50%;"/>
+  </div>
+</div>
+ <div class="flex" style="display:inline-block; position:inherit;">
+   <div class="box" style="left: 40%;">
+  <div class="wave -one" style="background:#0C0;"></div>
+  <div class="wave -two" style="background:#0FF;"></div>
+  <div class="wave -three" style="background:#0C3"></div>
+  <div class="title">
+    <a href="#" id="klb" style="text-decoration: none; color: #FFF;">Keylogging</a>
+ </div>
+ </div>
+     </div>
+    <div id="klmod" class="modal" >
+  <div class="modal-content">
+    <span class="close" id="klclose">&times;</span>
+    <h1 align="center">Keylogging</h1>
+    <p>Keystroke logging is the action of recording or logging the keyboard and or mouse inputs into a computer. This is usually done without the users knowledge, sometimes in the form of malware. Keylogging can be used illegally and legally. For example: A workplace would install keylogging software on their computers to monitor it's employees. Hackers use keyloggers, in the form of malware to obtain passwords and other sensitive information. </p>
+    <img src="https://www.observeit.com/wp-content/uploads/2015/05/Advanced%20Corporate%20Keylogging%20pic1_0.jpg" style="z-index: -1; width: 100%; height: 100%; opacity: 0.5; top: 50%; left: 50%;"/>
+  </div>
+</div>
+  <div class="flex" style="display:inline-block; position:inherit;">
+   <div class="box" style="left: 60%;">
+  <div class="wave -one" style="background:#FF0;"></div>
+  <div class="wave -two" style="background:#F0F;"></div>
+  <div class="wave -three" style="background:#F00;"></div>
+  <div class="title">
+    <a href="#" id="idb" style="text-decoration: none; color: #FFF;">Identity theft</a>
+ </div>
+ </div>
+     </div>
+    <div id="idmod" class="modal" >
+  <div class="modal-content">
+    <span class="close" id="idclose">&times;</span>
+    <h1 align="center">Identity Theft</h1>
+    <p>Identity theft is a growing issue in the digital world. Identity theft is usually a result of a successful phishing lure or keylogging attempt. Unlike illegal downloading, identity theft is a serious and punishible offense in Canada, and almost every other country in the world. To avoid identity theft, do not enter personal information such as social security numbers or name, address etc on websites that are not secure or are malicious. </p>
+    <img src="http://theexaminer.com/sites/default/files/idtheft830.JPG" style="z-index: -1; width: 100%; height: 100%; opacity: 0.5; top: 50%; left: 50%;"/>
+  </div>
+</div>
+   <div class="flex" style="display:inline-block; position:inherit;">
+   <div class="box" style="left: 80%;">
+  <div class="wave -one" style="background:#0FF;"></div>
+  <div class="wave -two" style="background:#666;"></div>
+  <div class="wave -three" style="background:#9F0;"></div>
+  <div class="title">
+    <a href="#" id="spb" style="text-decoration: none; color: #FFF;">Spyware</a>
+ </div>
+ </div>
+</div>
+    <div id="spmod" class="modal" >
+  <div class="modal-content">
+    <span class="close" id="spclose">&times;</span>
+    <h1 align="center">Spyware</h1>
+    <p>Exactly as the name suggests, "spyware" is software that is used to collect data, usually about internet users activity. Spyware is actually common on websites such as Google, Facebook and Twitter. It is useful to companies such as these for analysis - to see what users do on their site, and how to improve user experience. Some websites who gather this data also sell the data to third parties, an example of this is Betternet VPN. The company gives the illusion of internet privacy, but is actually the complete opposite. Spyware can also take an illegal form, in the form of viruses. This form of spyware can be used similarly to keylogging - to obtain users passowrds or other sensitive information.</p>
+    <img src="http://www.mhsaoit.com/images/IT-Essentials/Ch10/spyware.jpg" style="z-index: -1; width: 100%; height: 100%; opacity: 0.5; top: 50%; left: 50%;"/>
+  </div>
+</div>
+   <div class="flex" style="display:inline-block; position:inherit;">
+   <div class="box" style="top: 60%; left: 0%;">
+  <div class="wave -one" style="background:#FFF;"></div>
+  <div class="wave -two" style="background:#F96;"></div>
+  <div class="wave -three" style="background:#63F;"></div>
+  <div class="title">
+    <a href="#" id="bdb" style="text-decoration: none; color: #FFF;">Backdoors</a>
+ </div>
+ </div>
+</div>
+    <div id="bdmod" class="modal" >
+  <div class="modal-content">
+    <span class="close" id="bdclose">&times;</span>
+    <h1 align="center">Backdoors</h1>
+    <p>A usually secret method of obtaining root or administrator privileges, often for remote use. Used maliciously, backdoors can be very dangerous, taking on the name "rootkit". I have personally been rootkitted before, and there are only two ways one can remove the rootkit (referred to as a RAT or Remote Access Tool) - Malwarebytes Anti-Rootkit, which is still in beta, and just wiping the computer. Since rootkits are very intricate and usually hard to spot, most anti-virus software won't pick it up at all. These are used to completely control a device, and can do anything in the realm of the computer, such as keylogging, controlling user accounts, managing passwords etc. Rootkits can also be used non-maliciously, some companies make hardware that only they can get into from the outside, such as Tesla Motors, who have complete access to the vehicle from their servers, but nobody else, even with physical access can get into the root system.</p>
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSByIzYJOs1yjzZtH6VrSrG9p0Ahgw6bCPVzpkgSupw9fnzWwu9" style="z-index: -1; width: 100%; height: 100%; opacity: 0.5; top: 50%; left: 50%;"/>
+  </div>
+</div>
+    <div class="flex" style="display:inline-block; position:inherit;">
+   <div class="box" style="top: 60%; left: 20%;">
+  <div class="wave -one" style="background:#FF0;"></div>
+  <div class="wave -two" style="background:#0F0;"></div>
+  <div class="wave -three" style="background:#FF0;"></div>
+  <div class="title">
+    <a href="#" id="ddb" style="text-decoration: none; color: #FFF;">DOS and DDOS</a>
+ </div>
+ </div>
+    </div>
+    <div id="ddmod" class="modal" >
+  <div class="modal-content">
+    <span class="close" id="ddclose">&times;</span>
+    <h1 align="center">DOS and DDOS attacks</h1>
+    <p>DOS or Denial of Service attacks, like DDOS - Distributed Denail of Service attacks, pelt the target with tons (literally tons) of data, all at the same time. The goal of these attacks are the same: send the most possible useless data to the target IP address to render their network slow or completely offline. However, DOSing is only one single computer or IP address that sends the useless data to the target, the problem with these attacks is that once the IP of the attacker has been found, the target can then block the offending IP. DDOSing takes this into account, and uses multiple servers and IPs to attack the target. DDOS attacks are usually much more powerful and can actually cause damage to the target. DDOS attacks are so powerful that they can actaully take down entire websites. For example, the website Bloxcity.com was taken offline for almost 36 hours, as a result of a powerful DDOS attack.</p>
+    <img src="http://www.cloud53.co.uk/wp-content/uploads/2016/01/ddos.png" style="z-index: -1; width: 100%; height: 100%; opacity: 0.5; top: 50%; left: 50%;"/>
+  </div>
+</div>
+    <div class="flex" style="display:inline-block; position:inherit;">
+   <div class="box" style="top: 60%; left: 40%;">
+  <div class="wave -one" style="background:#0FF;"></div>
+  <div class="wave -two" style="background:#F00;"></div>
+  <div class="wave -three" style="background:#F3F;"></div>
+  <div class="title">
+   <a href="#" id="spfb" style="text-decoration: none; color: #FFF;">Spoofing</a>
+ </div>
+ </div>
+</div>
+    <div id="spfmod" class="modal" >
+  <div class="modal-content">
+    <span class="close" id="spfclose">&times;</span>
+    <h1 align="center">Spoofing</h1>
+    <p> IP and ARP spoofing are called “man-in-the-middle” attacks. MITM attacks disguise themselves as the destination IP addresses, for example: If a MITM attacker spoofs their IP or ARP as www.google.com, and I go to google.com in my browser. Two things can happen at this point: If the MITM attacker is using a transparent proxy, then I will be able to access google.com, however the attacker will see everything I do on the site. Another type is a one-way proxy: when I connect to google.com, the web browser will say I’m on google.com, however, the actual website content will be hosted by the attacker. The goal of MITM attacks is to get important information that users and applications use, ex: Passwords, access tokens, bank info etc.</p>
+    <img src="https://www.incapsula.com/images/illustrations/web-app-security-mini-site/man-in-the-middle-mitm.jpg" style="z-index: -1; width: 100%; height: 100%; opacity: 0.5; top: 50%; left: 50%;"/>
+  </div>
+</div>
+    <div class="flex" style="display:inline-block; position:inherit;">
+   <div class="box" style="top: 60%; left: 60%;">
+  <div class="wave -one" style="background:#00F;"></div>
+  <div class="wave -two" style="background:#F30;"></div>
+  <div class="wave -three"  style="background:#0FF;"></div>
+  <div class="title">
+    <a href="#" id="cjb" style="text-decoration: none; color: #FFF;">Clickjacking</a>
+ </div>
+ </div>
+</div>
+   
+    <div id="cjmod" class="modal" >
+  <div class="modal-content">
+    <span class="close" id="cjclose">&times;</span>
+    <div onClick="window.open('http://google.com', '_blank');">
+    <h1 align="center">Clickjacking</h1>
+    <p>Known as a UI redress attack, the attacker will build a website, and add see through layers to it to "hijack your click". This can be done by adding a button to the website, such as "Click here to skip ad" - but cover that button with two transparent layers which will accept the click, rather than the button. Personally I don't see the point in doing this because one could just open the web inspector and view for themselves what is happening, and also, one could just program the button itself to redirect to a different url. This window is an example of clickjacking, to test it out, click the button below (at your own risk)! This can be very easily accomplished, as shown in the code.</p>
+    <img src="http://4.bp.blogspot.com/_yNUEUpiUj0A/S-tzfELyenI/AAAAAAAAHP0/FWCRi9frdgM/s1600/Clickjacking_diagram-724769.jpg" style="z-index: -1; width: 100%; height: 100%; opacity: 0.5; top: 50%; left: 50%;"/>
+    <button name="clickjackbutton" style="width: 100%; height: 100%; background-color: aquamarine;">Clickjack me</button>
+	  </div>
+  </div>
+</div>
+    <div class="flex" style="display:inline-block; position:inherit;">
+   <div class="box" style="top: 60%; left: 80%;">
+  <div class="wave -one" style="background:#0F0;"></div>
+  <div class="wave -two" style="background:#039;"></div>
+  <div class="wave -three" style="background:#C00;"></div>
+  <div class="title">
+    <a href="#" id="hwb" style="text-decoration: none; color: #FFF;">Hardware</a>
+ </div>
+ </div>
+ </div>
+    <div id="hwmod" class="modal" >
+  <div class="modal-content">
+    <span class="close" id="hwclose">&times;</span>
+    <h1 align="center">Hardware</h1>
+    <p>Hardware hacking isn't usually malicious, although when governments such as the United States government install monitoring hardware in internet service providers, I would deem such action malicious. Usually, hardware hacks are actually beneficial to most, as they generally improve either functionality, performance or both. Some examples are Raspberry PI devices, which are produced as simple computers, but after a bit of tinkering, they can become pretty much anything. Although the intention with Raspberry Pis is to turn them into your own device, people still manage to find increasingly creative ways to use them. An example of this is a Raspberry Pi that can be used as a VPN or login server, or the visual audio mixer Pi. Although devices such as the Raspberry Pi exist, some people like to take it to the next level; a homeowner in the states decided to strip down car batteries and use them along with solar panels to power his home. Read more below.</p>
+    <img src="http://rayhightower.com/assets/raspberry_pi_iphone.jpg" style="z-index: -1; width: 100%; height: 100%; opacity: 0.5; top: 50%; left: 50%;"/>
+    <button name="skiebutton" style="width: 100%; height: 100%; background-color: aquamarine;" onClick="window.open('http://skie.net/uploads/solarpublic/', '_blank');">Read more</button>
+  </div>
+</div>
+<h1 style="position: relative; top: 800px;">
+Protection Against the above:
+	</h1>
+	<div style="position: relative; top: 850px; font-family: 'Hind', 'Arial';">
+<p>
+Most viruses can be avoided simply by downloading an anti-virus software such as Norton, Avast or Malwarebytes. This software detects malicious activity within the computer and traces it back to the root cause. It then puts the suspected program in a zone called "quarantine" - the program will not run any longer, unless you take it out of quarantine manually. 
+
+For rootkits, <a href="https://www.malwarebytes.com/antirootkit/" target="_blank">Malwarebytes Anti-Rootkit tool</a> works best. 
+</p>
+<p>
+To prevent DOS and DDOS attacks, do not share your IP address unless necessary. There isn't really any reason someone would start a DOS or DDOS attack on you, other than if you attacked them first. Either way it's illegal, and usually pointless becuase as soon as the attack finishes, the target will have access to everything again (in most cases). </p>
+ <p>
+To protect yourself against Phising, use an <a href="https://adblockplus.org" target="_blank">Ad-Blocker</a> on your internet browser and use the junk filter on your E-Mail box. Sometimes phishing E-Mails will get through the filter, and in most cases they look identical to what the real company would send you. An easy way to see if it is a scam is to click on the E-Mail address of the sender and see if the actual address is correct. Example: FAKE[apple.support@support.hacker.com], REAL[support@apple.com]. </p>
+ <p>
+ Keylogging really should not be an issue for most people, as anti-viruses will typically catch the keyloggers as they are downloaded. This coincides with Spyware: in most cases, a good anti-virus will pick up cases of these malicious programs and shut them down.
+  </p>
+ <p>
+ Illegal downloading. Before downloading something illegally, ask yourself one question: "If I were in a store, and a physical copy of this was there, would I take it?" The answer should be no. It is wrong and not victimless.
+  </p>
+ <p>
+ Spoofing. This is something to be worried about, especially in 2017. The only way to protect yourself from spoofing attacks is to use a VPN or Virtual Private Network. There are free VPNs, such as Betternet, that work, however, they have extreme downsides which I mention in the Spyware section. It is best to setup your own VPN server or to pay for one monthly. Whenever you are connected to a public network, such as a library or coffee shop network, consider your information at risk. Do not enter any personal information while using such networks unless A: you have a VPN or B: you are certain nobody on the network is spoofing.
+ </p>
+ <p>
+ To prevent ID theft, never enter serious information about yourself, such as social security numbers, health card numbers etc over non HTTPS connections. Also, verify you are on the correct site, not a phishing site. Always clear your history and browser cookies after entering confidential information. Also, use high strength passwords to reduce the liklihood of someone guessing your password.
+ </p>
+ <p>
+ Clickjacking can be avoided by not going on sites that are going to hijack your clicks. This is extremely easy to do as probably 99.999999% of websites won't have clickjacks on them.
+ </p>
+ <p>
+ Hardware hacking. I don't know if you'd want to prevent this, unless someone was inflicting damage on your personal devices. Hardware hacking is a bit of an art form and can be extremely interesting.
+ </p>
+ <p>
+ Backdoors. Don't get backdoored. This is about the worst possible thing that can happen to your computer. Viruses like these are rare, however, and don't appear in legitimate software.
+
+ </p>
+	</div>
+ <footer>
+<a href="sources.html" target="mainFrame" style="text-align:center; text-decoration:none; color:#999;">Sources</a>
+</footer>
+</body>
+</html>

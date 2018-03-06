@@ -1,0 +1,80 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Survey</title>
+<link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Hind" rel="stylesheet">
+<style type="text/css">
+body {
+	background-color: #333333;
+}
+	#label {
+		font-family: 'Pacifico', 'Hind', 'Arial';
+		font-size: 40px;
+		color: #09F;
+		position: relative;
+		
+	}
+	label {
+		font-family: 'Hind', 'Arial';
+		font-size: 20px;
+		color: #999;
+		position: relative;
+		
+	}
+	input {
+		position: relative;
+		
+	}
+	
+</style>
+</head>
+
+<body>
+<form id="form1" name="form1" method="post" style="position: relative; text-align: center;">
+<h1 id="label">Survey</h1>
+<label for="textfield" >What do you think about the site?</label>
+	<textarea name="textfield" id="textfield" style="width: 300px; height: 50px;"></textarea>
+<p>
+ <h1 style="font-family: 'Hind', 'Arial'; color: #999999">How was the site, design and functionality?</h1>
+  <label>
+    <input type="radio" name="Mood" value="good" id="Mood_0">
+    Good</label>
+  <br>
+  <label>
+    <input type="radio" name="Mood" value="alright" id="Mood_1">
+    Alright</label>
+  <br>
+  <label>
+    <input type="radio" name="Mood" value="meh" id="Mood_2">
+    Meh</label>
+  <br>
+  <label>
+    <input type="radio" name="Mood" value="cbb" id="Mood_3">
+    Could be better</label>
+  <br>
+  <label>
+    <input type="radio" name="Mood" value="awful" id="Mood_4">
+    Awful</label>
+  <br>
+	</p>
+  <h1 style="font-family: 'Hind', 'Arial'; color: #999999">Coffee?</h1>
+  <p>
+  <label>
+    <input type="checkbox" name="Coffee" value="yes" id="Coffee_0">
+    Yes</label>
+  <br>
+  <label>
+    <input type="checkbox" name="Coffee" value="no" id="Coffee_1">
+    No</label>
+  <br>
+</p>
+
+
+<input type="submit" name="submit" id="submit" value="Submit">
+<input type="reset" name="reset" id="reset" value="Reset">
+</form>
+
+</body>
+</html>
